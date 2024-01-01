@@ -1,0 +1,8 @@
+install.packages('expm')
+library(expm)
+a=matrix(c(0.35,0.65),ncol=1,byrow = T)
+P=matrix(c(0.7,0.3,0.4,0.6),ncol=2,byrow = T)
+PT=c("P_12^2 = ","P_22^4= ","P_21^10= ","P(X_5= 1) = ","P(X_8= 2) = ")
+Pr =c((P%^%2)[1,2],(P%^%4)[2,2],(P%^%10)[2,1],(t(a)%*%(P%^%5))[1],
+      (t(a)%*%(P%^%8))[2])
+data.frame(PT,Pr)
