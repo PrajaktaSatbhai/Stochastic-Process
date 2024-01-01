@@ -1,0 +1,35 @@
+# Que.1 :- Consider a finite Markov chain {Xn,n ∈ N} with state space S = {0,1,2,3} and TPM is
+#           [ 0.5   0.25   0.25   0
+#   P =        0    0.25   0.25  0.5
+#             0.25  0.5    0.25   0
+#             0.25  0.25   0.25  0.25 ]
+# Find the limiting probabilities of this Markov chain.
+
+P=matrix(c(0.5,0.25,0.25,0,
+           0,0.25,0.25,0.5,
+           0.25,0.5,0.25,0,
+           0.25,0.25,0.25,0.25),byrow=T,nrow=4)
+P
+I=diag(rep(1,4))
+A=rbind(I-t(P),rep(1,4))
+B=c(rep(0,4),1)
+Pi=solve(t(A)%*%A,t(A)%*%B)
+#Verification :
+t(Pi)
+t(Pi)%*%P
+
+# Que.2 :- Consider a Markov chain {Xn,n ∈ N} with state space S = {0,1,2,3,4}. Suppose P04 = 1 and suppose that when the chain is in state i,i > 0, the next state is equally likely to be any of the states
+# 0,1,··· ,i −1. Find the limiting probabilities of this Markov chain.
+
+P=matrix(c(0.5,0.25,0.25,0,
+           0,0.25,0.25,0.5,
+           0.25,0.5,0.25,0,
+           0.25,0.25,0.25,0.25),byrow=T,nrow=4)
+P
+I=diag(rep(1,4))
+A=rbind(I-t(P),rep(1,4))
+B=c(rep(0,4),1)
+Pi=solve(t(A)%*%A,t(A)%*%B)
+#Verification :
+t(Pi)
+t(Pi)%*%P
