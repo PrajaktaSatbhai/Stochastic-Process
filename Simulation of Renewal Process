@@ -1,0 +1,12 @@
+# Que.1 :- Consider a renewal process {N(t),t ≥ 0} having following distribution for inter-arrival times. Then simulate the 
+# renewal process for 0 ≤ t ≤ y.
+# a) N(µ = 2,σ2 = 0.0625) & y = 5 b) Gamma(α = 2,β = 2) & y = 10 c) LN(µ = 0.5,σ2 = 0.0025) & y = 7 d) Uniform(0,5) & y = 15
+
+mu=2; sigma2=0.0625; t=10;
+interarr=rnorm(10,mu,sqrt(sigma2));
+arr=cumsum(interarr);
+arr=arr[arr<t];
+n=length(arr);
+Xt=cumsum(runif(n,100,200))
+df=data.frame("Start"=c(0,arr),"Upto"=c(arr,t),"Nt"=0:n,"Xt"=c(0,Xt))
+df
