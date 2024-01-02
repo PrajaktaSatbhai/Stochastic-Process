@@ -1,0 +1,34 @@
+# Que.1 :- Let {Xn,n ∈ N} be a Bienayme-Galton-Watson Branching Process with offspring distribution
+# specified by probability generating function as g (s) = 0.25 + 0.35s + 0.3s^2 + 0.1s^3.If X0 = 3
+# then obtain realization of {Xn,n ∈ N} for n = 0,1,··· ,8, Xn denote size of nth generation.
+
+g=function(s)
+{
+  return(0.25+0.35*s+0.3*s^2+0.1*s^3-s)
+  uniroot(g,interval = c(0,1)$root)
+}
+g(0.6)
+
+
+# Que.2 :- Let {Xn,n ∈ N} be a Bienayme-Galton-Watson Branching Process with offspring distribution given
+# by P[ξ = 0] = 0.2,P[ξ = 1] = 0.3,P[ξ = 2] = 0.2,P[ξ = 3] = 0.3. If X0 = 2,then realize X1,X2,··· ,X5 
+# where Xn denote size of nth generation.
+
+g1=function(s)
+{
+  return(0.2+0.3*s+0.2*s^2+0.3*s^3-s)
+  uniroot(g,interval = c(0,1)$root)
+}
+g1(5)
+
+
+# Que.3 :- Let {Xn,n ∈ N} be a Bienayme-Galton-Watson Branching Process with offspring distribution
+# specified by probability generating function as g (s) = 0.5 + 0.3s + 0.2s^2.If X0 = 3 then obtain 
+# realization of {Xn,n ∈ N} for n = 0,1,··· ,8, Xn denote size of nth generation.
+
+g2=function(s)
+{
+  return(0.5+0.3*s+0.2*s^2-s)
+  uniroot(g,interval = c(0,1)$root)
+}
+g2(8)
