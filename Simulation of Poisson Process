@@ -1,0 +1,40 @@
+# Que.1 :- Let {N(t),t ≥ 0} be the Poisson Process with rate λ = x. Simulate the interarrival times and hence
+# waiting times up to t = y. Depict it graphically for 0 ≤ t ≤ y.
+# i) x = 2 and y = 5 ii) x = 4 and y = 9.5 iii) x = 9 and y = 7
+
+poiss_sim=function(lambda,tlast)
+{
+  int_arrival=rexp(2*lambda*tlast,rate=lambda)
+  arr=cumsum(int_arrival)
+  arr=arr[arr<=tlast]
+  n=length(arr)
+  df=data.frame("Start"=c(0,arr),"Upto"=c(arr,tlast),"Nt"=0:n)
+  df}
+lambda=2;tlast=5;
+poiss_sim(lambda,tlast)
+lambda1=4;tlast1=5;
+poiss_sim(lambda1,tlast1)
+lambda2=2;tlast2=5;
+poiss_sim(lambda2,tlast2)
+
+
+# Que.2 :- Simulate the Poisson process at time points t with rate λ without simulating its interarrival time.
+# i) t = 1.5,2.2,3.8,7.5,8.8 & λ = 1 ii) t = 1.23,2.21,2.83,6.05,7.08,17.8 & λ = 1.5
+
+ti=c(0,1.5,2.2,3.8,7.5,8.8)
+lambda=1
+n=length(ti)
+z=rep(0,n-1)
+for (i in 1:n-1){
+  z[i]=rpois(1,lambda*(ti[i+1]-ti[i]))}
+z=cumsum(z)
+z
+
+
+# Que.3 :- If {N(t),t ≥ 0} is the Poisson Process & N(x) = y. Simulate Poisson process for 0 ≤ t ≤ x i) x = 6
+# and y = 5 ii) x = 7 and y = 10 iii) x = 9 and y = 7
+
+t1=5;n=6;
+arr=sort(runif(n,0,t1))
+df=data.frame("Start"=c(0,arr),"."="<=t<","Upto"=c(arr,t1),"Nt"=0:n)
+df
