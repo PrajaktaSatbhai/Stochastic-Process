@@ -1,0 +1,15 @@
+# Que.1 :- In a bank, suppose that customer arrives at an exponential rate λ = 1 per minute for depositing
+# or withdrawing amount. Suppose the distribution of amount to be deposited or withdrawn has
+# distribution N(µ = 1000,σ2 = 400). Simulate the compound poisson process of the amount at
+# counter from 11.00 am to 11.15 am. Consider initial amount at counter is Rs.10000/-.
+
+rm(list=ls())
+lambda=1; t=15;
+interarr=rexp(2*lambda*t,lambda);
+arr=cumsum(interarr);
+arr=arr[arr<t];
+n=length(arr);
+X0=15000;
+Xt=X0+cumsum(runif(n,-10000,10000))
+df=data.frame("Start"=c(0,arr),"Upto"=c(arr,t),"Nt"=0:n,"Xt"=c(X0,Xt))
+df
